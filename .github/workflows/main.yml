@@ -29,4 +29,13 @@ jobs:
           port: 22
           source: ./
           target: /home/ubuntu
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@v1.2.0
+      with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          script: |
+            sudo cp -r . /var/www/html
         
